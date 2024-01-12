@@ -9,11 +9,7 @@ from PIL import Image
 import argparse
 
 from torchvision.models import resnet50
-
-# basic imports
 import numpy as np
-
-# DL library imports
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
