@@ -130,11 +130,11 @@ train_id_to_color = np.array(train_id_to_color)
 
 # Load the pre-trained PSPNet model
 model = PSPNet(in_channels=3, num_classes=3, use_aux=True)
-model.load_state_dict(torch.load('/home/annotationguest/SegmentationDrivable/PSPNet_drivingspacesS_weights.pt', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('PSPNet_drivingspacesS_weights.pt', map_location=torch.device('cpu')))
 model.eval()
 
 # Load and preprocess the input image
-input_image_path = '/home/annotationguest/SegmentationDrivable/b1eb9133-5cc75c18.jpg'
+input_image_path = 'b1eb9133-5cc75c18.jpg'
 input_image = Image.open(input_image_path).convert('RGB')
 
 transform = transforms.Compose([
