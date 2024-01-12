@@ -126,9 +126,9 @@ class DrivingDataset(Dataset):
 # Define the label information
 Label = namedtuple("Label", ["name", "train_id", "color"])
 drivables = [
-    Label("direct", 0, (255, 0, 0)),        # green
-    Label("alternative", 1, (0, 0, 255)),  # blue
-    Label("background", 2, (0, 0, 0)),        # black          
+    Label("direct", 0, (255, 0, 0)),        
+    Label("alternative", 1, (0, 0, 255)),  
+    Label("background", 2, (0, 0, 0)),                 
 ]
 train_id_to_color = [c.color for c in drivables if (c.train_id != -1 and c.train_id != 255)]
 train_id_to_color = np.array(train_id_to_color)
@@ -191,14 +191,14 @@ transform = transforms.Compose([
 ])
 
 # Specify the input video path
-input_video_path = '/home/annotationguest/SegmentationDrivable/inst_lane.mp4'  # Replace with the actual path to your input video
+input_video_path = 'YOUR .MP4 INPUT VIDEO FILE'  # Replace with the actual path to your input video
 
 # Specify the output video path
 output_video_path = 'output_video.avi'
 
 # Load the pre-trained PSPNet model
 model = PSPNet(in_channels=3, num_classes=3, use_aux=True)
-model.load_state_dict(torch.load('/home/annotationguest/SegmentationDrivable/PSPNet_drivingspace_weights.pt', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('PSPNet_drivingspace_weights.pt', map_location=torch.device('cpu')))
 model.eval()
 
 # Process the video and save the segmented output
